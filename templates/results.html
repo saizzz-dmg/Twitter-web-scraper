@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BARSAATI ASSIGNMENT</title>
+  </head>
+  <body>
+    <h1>HTML page:</h1>
+    <br />
+    <p>
+      These are the most happening topics as on {{ date }} at {{ time }}
+      (UTC+5:30)
+      <br />
+      <p>- {{ nameoftrend1 }}</p>
+      <p>- {{ nameoftrend2 }}</p>
+      <p>- {{ nameoftrend3 }}</p>
+      <p>- {{ nameoftrend4 }}</p>
+      <p>- {{ nameoftrend5 }}</p>
+      <br />
+      <br>
+      The IP address used for this query was {{ ip }}.<br><br>
+      <br>Here’s a JSON extract of
+      this record from the MongoDB: 
+      <br>
+      <br>
+      {{ JSON }}
+    </p>
+    <a href="http://127.0.0.1:8000/refreshfeed">
+      <button>Click here to run the script again</button>
+    </a>
+  </body>
+</html>
+
