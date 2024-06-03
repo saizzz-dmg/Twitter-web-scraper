@@ -1,9 +1,9 @@
 from fastapi import APIRouter,Request 
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from models.models import trending_list_in  , Trending_list
+from schemas.schemas import trending_list_in  , Trending_list
 from config.database import collection_name
-from schemas import individual_serial
+from models import individual_serial
 from bson import ObjectId
 from scrapers.scraper import scraper_func , refresh_scraper_func
 import httpx

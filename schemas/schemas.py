@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import datetime
+
 class trending_list_in(BaseModel):
     nameoftrend1: str
     nameoftrend2: str
