@@ -31,7 +31,7 @@ def scraper_func():
 
     # proxy = random.choice(ip_addresses)
     # options.add_argument(f'--proxy-server={proxy}')
-    
+
     options.add_argument("--start-maximized")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("detach" , True)
@@ -41,17 +41,19 @@ def scraper_func():
     driver.get(url)
 
     username = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[autocomplete="username"]')))
-    username.send_keys("n85442525@gmail.com")
+    username.send_keys("<email>")
     username.send_keys(Keys.ENTER)
     username = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[autocomplete="on"]')))
-    username.send_keys("newuser2110132")
+    username.send_keys("<username")
     username.send_keys(Keys.ENTER)
     password = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="password"]')))
-    password.send_keys("randompassword123")
+    password.send_keys("<password>")
     password.send_keys(Keys.ENTER)
-    contents_whats_happening = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[aria-label="Timeline: Trending now"]')))
+    show_more = WebDriverWait(driver , 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR ,'a[href="/explore/tabs/for-you"]')))
+    show_more.click()
+    contents_whats_happening = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[aria-label="Timeline: Explore"]')))
     titles = contents_whats_happening.find_elements(By.CLASS_NAME ,"r-1bymd8e")
-
+# <a href="/explore/tabs/for-you" role="link" class="css-175oi2r r-w7s2jr r-3pj75a r-o7ynqc r-6416eg r-1ny4l3l r-1loqt21"><div dir="ltr" class="css-146c3p1 r-bcqeeo r-1ttztb7 r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-16dba41" style="text-overflow: unset; color: rgb(29, 155, 240);"><span class="css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-poiln3" style="text-overflow: unset;">Show more</span></div></a>
 
     for i , title in enumerate(titles[0:5]):
         ini_dict[f'nameoftrend{i+1}'] = title.text
@@ -71,7 +73,7 @@ def refresh_scraper_func():
 
     driver.refresh()
 
-    contents_whats_happening = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[aria-label="Timeline: Trending now"]')))
+    contents_whats_happening = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[aria-label="Timeline: Explore"]')))
     titles = contents_whats_happening.find_elements(By.CLASS_NAME , "r-1bymd8e")
 
 

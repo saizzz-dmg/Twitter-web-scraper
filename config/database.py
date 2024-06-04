@@ -1,6 +1,6 @@
 from pymongo.mongo_client import MongoClient
 
-client = MongoClient("mongodb+srv://admin123:admin123@cluster01.7snapwc.mongodb.net/?retryWrites=true&w=majority&appName=cluster01")
+client = MongoClient("mongodb+srv://<username>:<password>@cluster01.7snapwc.mongodb.net/?retryWrites=true&w=majority&appName=cluster01")
 
 db = client.trendingdb
 
