@@ -5,6 +5,7 @@ from selenium.webdriver import ChromeOptions, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+# import random
 
 ip_addresses = [
     "192.168.1.1",
@@ -26,6 +27,11 @@ def scraper_func():
     ini_dict = dict()
 
     options = ChromeOptions()
+
+
+    # proxy = random.choice(ip_addresses)
+    # options.add_argument(f'--proxy-server={proxy}')
+    
     options.add_argument("--start-maximized")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("detach" , True)
